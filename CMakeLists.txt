@@ -51,7 +51,7 @@ if (BUILD_SHARED_LIBRARY)
     add_library(${SDK_TARGET_NAME} SHARED "")
     set_target_properties(${SDK_TARGET_NAME} PROPERTIES SUFFIX ".so")
 else()
-    add_library(${SDK_TARGET_NAME} "")
+    add_library(${SDK_TARGET_NAME} STATIC "")
 endif()
 
 # Download and include rapidjson, not optional
@@ -155,19 +155,20 @@ if(UNIX)
 	add_subdirectory(cli)
 endif()
 
+OPTION(BUILD_TEST "To build Tests" OFF)
+IF(BUILD_TEST)
 add_subdirectory(tests/integration)
-
 add_subdirectory(tests/unit)
+ENDIF(BUILD_TEST)
 
-add_subdirectory(samples/PubSub)
-
-add_subdirectory(samples/ShadowDelta)
-
-add_subdirectory(samples/Discovery EXCLUDE_FROM_ALL)
-
-add_subdirectory(samples/StoryRobotArm EXCLUDE_FROM_ALL)
-
-add_subdirectory(samples/StorySwitch EXCLUDE_FROM_ALL)
+OPTION(BUILD_SAMPLES "To build samples" OFF)
+IF(BUILD_SAMPLES)
+    add_subdirectory(samples/PubSub)
+    add_subdirectory(samples/ShadowDelta)
+    add_subdirectory(samples/Discovery EXCLUDE_FROM_ALL)
+    add_subdirectory(samples/StoryRobotArm EXCLUDE_FROM_ALL)
+    add_subdirectory(samples/StorySwitch EXCLUDE_FROM_ALL)
+ENDIF(BUILD_SAMPLES)
 
 ##################################
 # Section: Define Install Target #
