@@ -23,7 +23,7 @@
 #include <util/memory/stl/Vector.hpp>
 
 #include "OpenSSLConnection.hpp"
-#include "util/logging/LogMacros.hpp"
+#include <util/logging/LogMacros.hpp>
 
 #ifdef WIN32
 #define MAX_PATH_LENGTH_ 260
