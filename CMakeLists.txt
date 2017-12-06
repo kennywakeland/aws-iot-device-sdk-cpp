@@ -152,7 +152,8 @@ endif()
 # Section : Define specific Targets #
 #####################################
 
-if(UNIX)
+OPTION(BUILD_cli "To build cli" OFF)
+if(UNIX AND BUILD_cli)
 	add_subdirectory(cli)
 endif()
 
