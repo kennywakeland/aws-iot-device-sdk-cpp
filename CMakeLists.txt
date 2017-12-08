@@ -79,8 +79,8 @@ target_sources(${SDK_TARGET_NAME} PRIVATE ${SDK_SOURCES})
 # Configure Threading library
 find_package(Threads REQUIRED)
 #-ldl
-set(THREAD_LIBRARY_LINK_STRING "Threads::Threads" )
-target_link_libraries(${SDK_TARGET_NAME} "Threads::Threads")
+set(THREAD_LIBRARY_LINK_STRING "Threads::Threads" -ldl)
+target_link_libraries(${SDK_TARGET_NAME} "Threads::Threads" -ldl)
 
 if(APPLE)
 	target_link_libraries(${SDK_TARGET_NAME} -lresolv)
