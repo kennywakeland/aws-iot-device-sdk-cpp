@@ -32,6 +32,9 @@ The Device SDK provides functionality to create and maintain a MQTT Connection. 
 ### Thing Shadow
 This SDK implements the specific protocol for Thing Shadows to retrieve, update and delete Thing Shadows adhering to the protocol that is implemented to ensure correct versioning and support for client tokens. It abstracts the necessary MQTT topic subscriptions by automatically subscribing to and unsubscribing from the reserved topics as needed for each API call. Inbound state change requests are automatically signalled via a configurable callback.
 
+### Jobs
+This SDK also implements the Jobs protocol to interact with the AWS IoT Jobs service. The IoT Job service manages deployment of IoT fleet wide tasks such as device software/firmware deployments and updates, rotation of security certificates, device reboots, and custom device specific management tasks. For additional information please see the [Jobs developer guide](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html).
+
 <a name="design"></a>
 ## Design Goals of this SDK
 The C++ SDK was specifically designed for devices that are not resource constrained and required advanced features such as Message queueing, multi-threading support and the latest language features
@@ -141,7 +144,7 @@ Also included is a simple example 'toolchain' which is used for setting the defa
 <a name="quicklinks"></a>
 ## Quick Links
 
- * [SDK Documentation](http://aws-iot-device-sdk-cpp-docs.s3-website-us-east-1.amazonaws.com/v1.2.0/index.html) - API documentation for the SDK
+ * [SDK Documentation](http://aws-iot-device-sdk-cpp-docs.s3-website-us-east-1.amazonaws.com/v1.4.0/index.html) - API documentation for the SDK
  * [Platform Guide](./Platform.md) - This file lists the steps needed to set up the pre-requisites on some popular platforms
  * [Developers Guide](./DevGuide.md) - Provides a guide on how the SDK can be included in custom code
  * [Greengrass Discovery Support Guide](./GreengrassDiscovery.md) - Provides information on support for AWS Greengrass Discovery Service
