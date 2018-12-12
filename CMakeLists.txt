@@ -177,10 +177,10 @@ endif()
 ##################################
 # Section: Define Install Target #
 ##################################
-if(NOT MSVC)
+#if(NOT MSVC)
     install(TARGETS aws-iot-sdk-cpp DESTINATION lib)
     install(DIRECTORY include/ DESTINATION include)
-endif()
+#endif()
 
 ##########################
 # Section: Print Summary #
